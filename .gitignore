@@ -89,3 +89,4 @@ fastlane/test_output
 
 iOSInjectionProject/
 .DS_Store
+Redux-Todo.xcodeproj/project.xcworkspace/contents.xcworkspacedata
