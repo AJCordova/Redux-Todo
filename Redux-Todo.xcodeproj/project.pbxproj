@@ -7,23 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BBD045D8CD2F66D57A7734E /* Pods_Redux_Todo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA9AA9BA31F0ED37A280EA4 /* Pods_Redux_Todo.framework */; };
+		E10D500A286771ED00B58D95 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D5009286771ED00B58D95 /* NewUserViewController.swift */; };
+		E10D500C2867721A00B58D95 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D500B2867721A00B58D95 /* TodoViewController.swift */; };
+		E17E1BCF2865A21000F01B92 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E1BCE2865A21000F01B92 /* UserModel.swift */; };
+		E198927628682C6B004417C8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198927528682C6B004417C8 /* AppState.swift */; };
+		E198927828683E22004417C8 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198927728683E22004417C8 /* AppReducer.swift */; };
+		E198927A28683F96004417C8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198927928683F96004417C8 /* AppRouter.swift */; };
+		E198927D28684005004417C8 /* RoutingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198927C28684005004417C8 /* RoutingState.swift */; };
+		E198927F286840FD004417C8 /* RoutingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198927E286840FD004417C8 /* RoutingReducer.swift */; };
+		E198928128684AE0004417C8 /* RoutingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928028684AE0004417C8 /* RoutingAction.swift */; };
+		E198928628685A44004417C8 /* UserFilesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928528685A44004417C8 /* UserFilesState.swift */; };
+		E198928828685AE1004417C8 /* UserFilesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928728685AE1004417C8 /* UserFilesReducer.swift */; };
 		E1B527EA28655DE700EB6CCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527E928655DE700EB6CCC /* AppDelegate.swift */; };
 		E1B527EC28655DE700EB6CCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */; };
 		E1B527EE28655DE700EB6CCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527ED28655DE700EB6CCC /* ViewController.swift */; };
-		E1B527F128655DE700EB6CCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B527EF28655DE700EB6CCC /* Main.storyboard */; };
 		E1B527F328655DE800EB6CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1B527F228655DE800EB6CCC /* Assets.xcassets */; };
 		E1B527F628655DE800EB6CCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1B527F428655DE800EB6CCC /* LaunchScreen.storyboard */; };
+		E1B5280328659C4E00EB6CCC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1B5280228659C4E00EB6CCC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E377A8AF907BFD22BDA6713 /* Pods-Redux-Todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux-Todo.debug.xcconfig"; path = "Target Support Files/Pods-Redux-Todo/Pods-Redux-Todo.debug.xcconfig"; sourceTree = "<group>"; };
+		99EAD31540CA430A5D02110B /* Pods-Redux-Todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux-Todo.release.xcconfig"; path = "Target Support Files/Pods-Redux-Todo/Pods-Redux-Todo.release.xcconfig"; sourceTree = "<group>"; };
+		ABA9AA9BA31F0ED37A280EA4 /* Pods_Redux_Todo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Redux_Todo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10D5009286771ED00B58D95 /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
+		E10D500B2867721A00B58D95 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
+		E17E1BCE2865A21000F01B92 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		E198927528682C6B004417C8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		E198927728683E22004417C8 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		E198927928683F96004417C8 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		E198927C28684005004417C8 /* RoutingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingState.swift; sourceTree = "<group>"; };
+		E198927E286840FD004417C8 /* RoutingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingReducer.swift; sourceTree = "<group>"; };
+		E198928028684AE0004417C8 /* RoutingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingAction.swift; sourceTree = "<group>"; };
+		E198928528685A44004417C8 /* UserFilesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilesState.swift; sourceTree = "<group>"; };
+		E198928728685AE1004417C8 /* UserFilesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilesReducer.swift; sourceTree = "<group>"; };
 		E1B527E628655DE700EB6CCC /* Redux-Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Redux-Todo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B527E928655DE700EB6CCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E1B527ED28655DE700EB6CCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E1B527F028655DE700EB6CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1B527F228655DE800EB6CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1B527F528655DE800EB6CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1B527F728655DE800EB6CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1B5280228659C4E00EB6CCC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,104 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BBD045D8CD2F66D57A7734E /* Pods_Redux_Todo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BCB7F09EEC5024A85CE89B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E377A8AF907BFD22BDA6713 /* Pods-Redux-Todo.debug.xcconfig */,
+				99EAD31540CA430A5D02110B /* Pods-Redux-Todo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC998172B29C699F7C932B23 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABA9AA9BA31F0ED37A280EA4 /* Pods_Redux_Todo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E10D5008286771CF00B58D95 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				E10D5009286771ED00B58D95 /* NewUserViewController.swift */,
+				E10D500B2867721A00B58D95 /* TodoViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E17E1BCD2865A1F300F01B92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E17E1BCE2865A21000F01B92 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E17E1BD02866242D00F01B92 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				E19892842868580B004417C8 /* States */,
+				E1989283286857FA004417C8 /* Reducers */,
+				E1989282286857F2004417C8 /* Actions */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		E198927428682BB8004417C8 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				E1B527F428655DE800EB6CCC /* LaunchScreen.storyboard */,
+				E1B527E928655DE700EB6CCC /* AppDelegate.swift */,
+				E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */,
+				E198927928683F96004417C8 /* AppRouter.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		E1989282286857F2004417C8 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				E198928028684AE0004417C8 /* RoutingAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		E1989283286857FA004417C8 /* Reducers */ = {
+			isa = PBXGroup;
+			children = (
+				E198927728683E22004417C8 /* AppReducer.swift */,
+				E198927E286840FD004417C8 /* RoutingReducer.swift */,
+				E198928728685AE1004417C8 /* UserFilesReducer.swift */,
+			);
+			path = Reducers;
+			sourceTree = "<group>";
+		};
+		E19892842868580B004417C8 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				E198927528682C6B004417C8 /* AppState.swift */,
+				E198927C28684005004417C8 /* RoutingState.swift */,
+				E198928528685A44004417C8 /* UserFilesState.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
 		E1B527DD28655DE700EB6CCC = {
 			isa = PBXGroup;
 			children = (
+				E1B5280228659C4E00EB6CCC /* GoogleService-Info.plist */,
 				E1B527E828655DE700EB6CCC /* Redux-Todo */,
 				E1B527E728655DE700EB6CCC /* Products */,
+				2BCB7F09EEC5024A85CE89B6 /* Pods */,
+				AC998172B29C699F7C932B23 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +169,12 @@
 		E1B527E828655DE700EB6CCC /* Redux-Todo */ = {
 			isa = PBXGroup;
 			children = (
-				E1B527E928655DE700EB6CCC /* AppDelegate.swift */,
-				E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */,
+				E198927428682BB8004417C8 /* Commons */,
+				E10D5008286771CF00B58D95 /* Scenes */,
+				E17E1BD02866242D00F01B92 /* Redux */,
+				E17E1BCD2865A1F300F01B92 /* Model */,
 				E1B527ED28655DE700EB6CCC /* ViewController.swift */,
-				E1B527EF28655DE700EB6CCC /* Main.storyboard */,
 				E1B527F228655DE800EB6CCC /* Assets.xcassets */,
-				E1B527F428655DE800EB6CCC /* LaunchScreen.storyboard */,
 				E1B527F728655DE800EB6CCC /* Info.plist */,
 			);
 			path = "Redux-Todo";
@@ -74,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1B527FA28655DE800EB6CCC /* Build configuration list for PBXNativeTarget "Redux-Todo" */;
 			buildPhases = (
+				A871B7B9B216C5AF3200A346 /* [CP] Check Pods Manifest.lock */,
 				E1B527E228655DE700EB6CCC /* Sources */,
 				E1B527E328655DE700EB6CCC /* Frameworks */,
 				E1B527E428655DE700EB6CCC /* Resources */,
+				C7601F4A84C6B7A660743AC7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +241,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1B527F628655DE800EB6CCC /* LaunchScreen.storyboard in Resources */,
+				E1B5280328659C4E00EB6CCC /* GoogleService-Info.plist in Resources */,
 				E1B527F328655DE800EB6CCC /* Assets.xcassets in Resources */,
-				E1B527F128655DE700EB6CCC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A871B7B9B216C5AF3200A346 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Redux-Todo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7601F4A84C6B7A660743AC7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Redux-Todo/Pods-Redux-Todo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Redux-Todo/Pods-Redux-Todo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Redux-Todo/Pods-Redux-Todo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E1B527E228655DE700EB6CCC /* Sources */ = {
@@ -139,22 +296,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1B527EE28655DE700EB6CCC /* ViewController.swift in Sources */,
+				E198927F286840FD004417C8 /* RoutingReducer.swift in Sources */,
 				E1B527EA28655DE700EB6CCC /* AppDelegate.swift in Sources */,
+				E198928828685AE1004417C8 /* UserFilesReducer.swift in Sources */,
+				E198927628682C6B004417C8 /* AppState.swift in Sources */,
+				E10D500A286771ED00B58D95 /* NewUserViewController.swift in Sources */,
+				E17E1BCF2865A21000F01B92 /* UserModel.swift in Sources */,
+				E198927A28683F96004417C8 /* AppRouter.swift in Sources */,
+				E10D500C2867721A00B58D95 /* TodoViewController.swift in Sources */,
+				E198928128684AE0004417C8 /* RoutingAction.swift in Sources */,
+				E198927828683E22004417C8 /* AppReducer.swift in Sources */,
+				E198927D28684005004417C8 /* RoutingState.swift in Sources */,
 				E1B527EC28655DE700EB6CCC /* SceneDelegate.swift in Sources */,
+				E198928628685A44004417C8 /* UserFilesState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E1B527EF28655DE700EB6CCC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E1B527F028655DE700EB6CCC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E1B527F428655DE800EB6CCC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +442,7 @@
 		};
 		E1B527FB28655DE800EB6CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E377A8AF907BFD22BDA6713 /* Pods-Redux-Todo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,7 +453,6 @@
 				INFOPLIST_FILE = "Redux-Todo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -311,6 +471,7 @@
 		};
 		E1B527FC28655DE800EB6CCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99EAD31540CA430A5D02110B /* Pods-Redux-Todo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,7 +482,6 @@
 				INFOPLIST_FILE = "Redux-Todo/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
