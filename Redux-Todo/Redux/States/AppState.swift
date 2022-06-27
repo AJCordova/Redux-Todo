@@ -9,5 +9,5 @@ import ReSwift
 
 struct AppState {
     let routingState: RoutingState
-    let userFilesState: UserFilesState
+    let userServiceState: UserServiceState
 }
