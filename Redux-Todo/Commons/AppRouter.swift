@@ -7,7 +7,7 @@
 
 import ReSwift
 
-enum RoutingDestination: String {
+enum RoutingDestination {
     case root
     case newUser
     case todo
