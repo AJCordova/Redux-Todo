@@ -6,7 +6,6 @@ target 'Redux-Todo' do
   use_frameworks!
 
   # Pods for Redux-Todo
-  pod 'FirebaseFirestore'
   pod 'ReSwift'
   pod 'SnapKit', '~> 5.6.0'
 
