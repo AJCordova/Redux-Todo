@@ -8,5 +8,8 @@ target 'Redux-Todo' do
   # Pods for Redux-Todo
   pod 'ReSwift'
   pod 'SnapKit', '~> 5.6.0'
+  
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
 
 end
