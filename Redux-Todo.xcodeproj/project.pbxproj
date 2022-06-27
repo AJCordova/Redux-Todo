@@ -12,6 +12,8 @@
 		E10D500C2867721A00B58D95 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D500B2867721A00B58D95 /* TodoViewController.swift */; };
 		E14C92C328694785005F0659 /* UserFileServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C92C228694785005F0659 /* UserFileServicesProtocol.swift */; };
 		E14C92C528695647005F0659 /* UserFileServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C92C428695647005F0659 /* UserFileServices.swift */; };
+		E14C92CF28698BE3005F0659 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C92CD28698BE3005F0659 /* TodoTableViewCell.swift */; };
+		E14C92D028698BE3005F0659 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C92CE28698BE3005F0659 /* TodoTableViewCell.xib */; };
 		E17E1BCF2865A21000F01B92 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17E1BCE2865A21000F01B92 /* UserModel.swift */; };
 		E198927628682C6B004417C8 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198927528682C6B004417C8 /* AppState.swift */; };
 		E198927828683E22004417C8 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198927728683E22004417C8 /* AppReducer.swift */; };
@@ -23,7 +25,6 @@
 		E198928828685AE1004417C8 /* UserServicesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928728685AE1004417C8 /* UserServicesReducer.swift */; };
 		E198928D28686898004417C8 /* UserServiceAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928C28686898004417C8 /* UserServiceAction.swift */; };
 		E198928F28687184004417C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928E28687184004417C8 /* Constants.swift */; };
-		E1989291286873F9004417C8 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1989290286873F9004417C8 /* UserServices.swift */; };
 		E1B527EA28655DE700EB6CCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527E928655DE700EB6CCC /* AppDelegate.swift */; };
 		E1B527EC28655DE700EB6CCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */; };
 		E1B527EE28655DE700EB6CCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527ED28655DE700EB6CCC /* ViewController.swift */; };
@@ -40,6 +41,8 @@
 		E10D500B2867721A00B58D95 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		E14C92C228694785005F0659 /* UserFileServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileServicesProtocol.swift; sourceTree = "<group>"; };
 		E14C92C428695647005F0659 /* UserFileServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileServices.swift; sourceTree = "<group>"; };
+		E14C92CD28698BE3005F0659 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		E14C92CE28698BE3005F0659 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		E17E1BCE2865A21000F01B92 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		E198927528682C6B004417C8 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E198927728683E22004417C8 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
@@ -51,7 +54,6 @@
 		E198928728685AE1004417C8 /* UserServicesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServicesReducer.swift; sourceTree = "<group>"; };
 		E198928C28686898004417C8 /* UserServiceAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceAction.swift; sourceTree = "<group>"; };
 		E198928E28687184004417C8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E1989290286873F9004417C8 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		E1B527E628655DE700EB6CCC /* Redux-Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Redux-Todo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B527E928655DE700EB6CCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,8 +96,8 @@
 		E10D5008286771CF00B58D95 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E14C92C7286988F7005F0659 /* Todo */,
 				E14C92C6286970A0005F0659 /* NewUser */,
-				E10D500B2867721A00B58D95 /* TodoViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -106,6 +108,24 @@
 				E10D5009286771ED00B58D95 /* NewUserViewController.swift */,
 			);
 			path = NewUser;
+			sourceTree = "<group>";
+		};
+		E14C92C7286988F7005F0659 /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				E14C92C828698903005F0659 /* Components */,
+				E10D500B2867721A00B58D95 /* TodoViewController.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
+		E14C92C828698903005F0659 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E14C92CD28698BE3005F0659 /* TodoTableViewCell.swift */,
+				E14C92CE28698BE3005F0659 /* TodoTableViewCell.xib */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E17E1BCD2865A1F300F01B92 /* Model */ = {
@@ -169,7 +189,6 @@
 		E198928928685EC5004417C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E1989290286873F9004417C8 /* UserServices.swift */,
 				E14C92C228694785005F0659 /* UserFileServicesProtocol.swift */,
 				E14C92C428695647005F0659 /* UserFileServices.swift */,
 			);
@@ -274,6 +293,7 @@
 				E1B527F628655DE800EB6CCC /* LaunchScreen.storyboard in Resources */,
 				E1B5280328659C4E00EB6CCC /* GoogleService-Info.plist in Resources */,
 				E1B527F328655DE800EB6CCC /* Assets.xcassets in Resources */,
+				E14C92D028698BE3005F0659 /* TodoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +349,7 @@
 				E1B527EE28655DE700EB6CCC /* ViewController.swift in Sources */,
 				E198928F28687184004417C8 /* Constants.swift in Sources */,
 				E198927F286840FD004417C8 /* RoutingReducer.swift in Sources */,
+				E14C92CF28698BE3005F0659 /* TodoTableViewCell.swift in Sources */,
 				E1B527EA28655DE700EB6CCC /* AppDelegate.swift in Sources */,
 				E198928828685AE1004417C8 /* UserServicesReducer.swift in Sources */,
 				E198928D28686898004417C8 /* UserServiceAction.swift in Sources */,
@@ -341,7 +362,6 @@
 				E198928128684AE0004417C8 /* RoutingAction.swift in Sources */,
 				E198927828683E22004417C8 /* AppReducer.swift in Sources */,
 				E198927D28684005004417C8 /* RoutingState.swift in Sources */,
-				E1989291286873F9004417C8 /* UserServices.swift in Sources */,
 				E1B527EC28655DE700EB6CCC /* SceneDelegate.swift in Sources */,
 				E198928628685A44004417C8 /* UserServiceState.swift in Sources */,
 				E14C92C528695647005F0659 /* UserFileServices.swift in Sources */,
