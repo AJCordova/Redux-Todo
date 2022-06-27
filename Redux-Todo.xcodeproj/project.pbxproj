@@ -94,10 +94,18 @@
 		E10D5008286771CF00B58D95 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				E10D5009286771ED00B58D95 /* NewUserViewController.swift */,
+				E14C92C6286970A0005F0659 /* NewUser */,
 				E10D500B2867721A00B58D95 /* TodoViewController.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E14C92C6286970A0005F0659 /* NewUser */ = {
+			isa = PBXGroup;
+			children = (
+				E10D5009286771ED00B58D95 /* NewUserViewController.swift */,
+			);
+			path = NewUser;
 			sourceTree = "<group>";
 		};
 		E17E1BCD2865A1F300F01B92 /* Model */ = {
