@@ -9,17 +9,19 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import ReSwift
 
 class TodoViewController: UIViewController {
     
     lazy var todoHeaderLabel: UILabel = UILabel()
     lazy var changeUserButton: UIButton = UIButton()
     lazy var addTodoButton: UIButton = UIButton()
-    lazy var todoTableView: UITableView = UITableView()
+    lazy var tableView: UITableView = UITableView()
     lazy var disposeBag = DisposeBag()
     
-    // private var viewModel: TodoViewModelTypes
     private let todoTableCellID = "TodoTableViewCell"
+    private var data: PublishSubject<[User.Task]> = PublishSubject<[User.Task]>()
+    private let userServices = UserFileServices()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,34 @@ class TodoViewController: UIViewController {
         
         setupViews()
         setupBindings()
+        
+        store.subscribe(self) { subscription in
+            subscription.select({ select in
+                select.activeUserState
+            })
+        }
+    }
+}
+
+extension TodoViewController: StoreSubscriber {
+    typealias StoreSubscriberStateType = ActiveUserState
+    
+    func newState(state: ActiveUserState) {
+        let fileService = UserFileServices()
+        
+        if state.user == nil {
+            fileService.loadFirstUser()
+        } else {
+            if let user = state.user {
+                if let name = user.name {
+                    todoHeaderLabel.text = "\(name)'s TODOs"
+                }
+                
+                if let tasks = user.tasks {
+                    data.onNext(tasks)
+                }
+            }
+        }
     }
 }
 
@@ -41,7 +71,6 @@ extension TodoViewController {
     }
     
     func setupTodoHeaderLabel() {
-        todoHeaderLabel.text = "User's TODOs"
         todoHeaderLabel.font = .systemFont(ofSize: 20, weight: .bold)
         view.addSubview(todoHeaderLabel)
         
@@ -71,10 +100,10 @@ extension TodoViewController {
     }
     
     func setupTodoTableView() {
-        todoTableView.register(UINib.init(nibName: "TodoTableViewCell", bundle: nil), forCellReuseIdentifier: todoTableCellID)
-        view.addSubview(todoTableView)
+        tableView.register(UINib.init(nibName: "TodoTableViewCell", bundle: nil), forCellReuseIdentifier: todoTableCellID)
+        view.addSubview(tableView)
         
-        todoTableView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(todoHeaderLabel.snp.bottom).offset(50)
             make.left.right.equalToSuperview().offset(20)
             make.height.equalTo(540)
@@ -102,46 +131,33 @@ extension TodoViewController: UITableViewDelegate {
 extension TodoViewController {
     func setupBindings() {
         addTodoButton.rx.tap
-            .bind { 
-                self.navigationController?.present(TodoEditViewController(), animated: true)
+            .bind {
+                DispatchQueue.main.async {
+                    store.dispatch(
+                        RoutingAction(destination: .editTodo)
+                    )
+                }
             }
             .disposed(by: disposeBag)
         
         changeUserButton.rx.tap
             .bind {
-                self.navigationController?.present(UsersListViewController(), animated: true)
+                DispatchQueue.main.async {
+                    store.dispatch(
+                        RoutingAction(destination: .changeUser)
+                    )
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        data
+            .bind(to: tableView.rx.items) { [self](tableView, row, task) -> TodoTableViewCell in
+                let cell = tableView.dequeueReusableCell(withIdentifier: self.todoTableCellID,
+                                                        for: IndexPath.init(row: row, section: 0)) as! TodoTableViewCell
+                
+                cell.title.text = task.title
+                return cell
             }
             .disposed(by: disposeBag)
     }
 }
-
-//    var encodedJson = ""
-//    var testModel: UserModel?
-//    @IBAction func jsonAction(_ sender: Any) {
-//        do {
-//            let data = try JSONEncoder().encode(SampleData.testUserModel)
-//            if let jsonString = String(data: data, encoding: .utf8) {
-//                print(jsonString)
-//                encodedJson = jsonString
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
-//
-//    @IBAction func decodeJson(_ sender: Any) {
-//        let encodedJson = Data(encodedJson.utf8)
-//        do {
-//            let decoded = try JSONDecoder().decode(UserModel.self, from: encodedJson)
-//            testModel = decoded
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//
-//        guard let testModelTasks = testModel?.tasks else { return }
-//
-//        for testModelTask in testModelTasks {
-//            print(testModelTask.title)
-//            print(testModelTask.details)
-//        }
-//    }
