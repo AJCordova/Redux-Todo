@@ -1,5 +1,5 @@
 //
-//  NewUserViewController.swift
+//  OnboardUserViewController.swift
 //  Redux-Todo
 //
 //  Created by COLLABERA on 6/26/22.
@@ -12,7 +12,7 @@ import ReSwift
 import RxSwift
 import RxCocoa
 
-class NewUserViewController: UIViewController {
+class OnboardUserViewController: UIViewController {
     
     lazy var greetingBannerLabel: UILabel = UILabel()
     lazy var usernameTextField: UITextField = UITextField()
@@ -26,6 +26,12 @@ class NewUserViewController: UIViewController {
         
         setupViews()
         setupBindings()
+        
+        store.subscribe(self) { subscription in
+            subscription.select({ select in
+                select.onboardNewUserState
+            })
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,10 +44,29 @@ class NewUserViewController: UIViewController {
         usernameTextField.borderStyle = .none
         usernameTextField.layer.addSublayer(bottomLine)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        store.unsubscribe(self)
+    }
+}
+
+extension OnboardUserViewController: StoreSubscriber {
+    typealias StoreSubscriberStateType = OnboardNewUserState
+    
+    func newState(state: OnboardNewUserState) {
+        if !state.name.isEmpty {
+            DispatchQueue.main.async {
+                store.dispatch(
+                    RoutingAction(destination: .todo)
+                )
+            }
+        }
+    }
 }
 
 // MARK: view set-up
-extension NewUserViewController {
+extension OnboardUserViewController {
     private func setupViews() {
         setupGreetingBanner()
         setupUsernameTextField()
@@ -95,18 +120,21 @@ extension NewUserViewController {
     }
 }
 
-extension NewUserViewController {
+extension OnboardUserViewController {
     private func setupBindings() {
         usernameTextField.rx.text.orEmpty.distinctUntilChanged()
             .map { $0.isEmpty ? true : false  }
             .bind(to: self.createNewUser.rx.isHidden)
             .disposed(by: disposeBag)
         
-        createNewUser.rx.tap.bind {
-//            store.dispatch(
-//
-//            )
-        }
+        createNewUser.rx.tap
+            .bind {
+                guard let username = self.usernameTextField.text else { return }
+                    store.dispatch(
+                        OnboardNewUserAction(name: username)
+                    )
+            }
+            .disposed(by: disposeBag)
     }
 }
 

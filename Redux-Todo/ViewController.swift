@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         store.subscribe(self) { subscription in
             subscription.select { state in
-                state.userServiceState
+                state.savedUserFilesState
             }
         }
     }
@@ -28,17 +28,19 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: StoreSubscriber {
-    typealias StoreSubscriberStateType = UserServiceState
+    typealias StoreSubscriberStateType = SavedUserFilesState
     
-    func newState(state: UserServiceState) {
+    func newState(state: SavedUserFilesState) {
         let fileServices = UserFileServices()
         let hasSavedDirectory = fileServices.exists(file: fileServices.getURL(for: .TodoDirectory))
         
-        switch state.hasSavedUserFiles {
-        case .checkForSavedUserFiles:
-            store.dispatch(
-                hasSavedDirectory ? RoutingAction(destination: .todo) : RoutingAction(destination: .newUser)
-            )
+        switch state.savedUserFilesState {
+        case .findSavedUserFiles:
+            DispatchQueue.main.async {
+                store.dispatch(
+                    hasSavedDirectory ? RoutingAction(destination: .todo) : RoutingAction(destination: .newUser)
+                )
+            }
         }
     }
 }

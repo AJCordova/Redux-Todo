@@ -7,7 +7,7 @@
 
 import ReSwift
 
-struct RoutingState {
+struct RoutingState: Equatable {
     var navigationState: RoutingDestination
     
     init(navigationState: RoutingDestination = .root) {

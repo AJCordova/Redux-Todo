@@ -9,5 +9,6 @@ import ReSwift
 
 struct AppState {
     let routingState: RoutingState
-    let userServiceState: UserServiceState
+    let savedUserFilesState: SavedUserFilesState
+    let onboardNewUserState: OnboardNewUserState
 }

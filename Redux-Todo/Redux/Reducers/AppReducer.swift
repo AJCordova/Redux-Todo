@@ -10,6 +10,7 @@ import ReSwift
 func appReducer(action: Action, state: AppState?) -> AppState {
     return AppState(
         routingState: routingReducer(action: action, state: state?.routingState),
-        userServiceState: userServiceReducer(action: action, state: state?.userServiceState)
+        savedUserFilesState: savedUserFilesReducer(action: action, state: state?.savedUserFilesState),
+        onboardNewUserState: onboardingReducer(action: action, state: state?.onboardNewUserState)
     )
 }
