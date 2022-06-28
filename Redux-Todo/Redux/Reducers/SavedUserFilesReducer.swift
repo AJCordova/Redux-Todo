@@ -13,6 +13,7 @@ func savedUserFilesReducer(action: Action, state: SavedUserFilesState?) -> Saved
     switch action {
     case let action as FindSavedUserFilesAction:
         state.savedUserFilesState = action.userServiceAction
+        
     default:
         break
     }

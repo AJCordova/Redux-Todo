@@ -13,6 +13,7 @@ func onboardingReducer(action: Action, state: OnboardNewUserState?) -> OnboardNe
     switch action {
     case let action as OnboardNewUserAction:
         state.name = action.name
+        
     default:
         break
     }
