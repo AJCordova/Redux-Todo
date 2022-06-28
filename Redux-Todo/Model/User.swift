@@ -1,5 +1,5 @@
 //
-//  UserModel.swift
+//  User.swift
 //  Redux-Todo
 //
 //  Created by COLLABERA on 6/24/22.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-struct UserModel: Codable {
+struct User: Codable {
     
-    var username: String?
+    var name: String?
     var tasks: [Task]?
     
     struct Task: Codable {
@@ -21,25 +21,25 @@ struct UserModel: Codable {
 }
 
 struct SampleData {
-    static let testUserModel0: UserModel = UserModel(username: "Test",
-                                                tasks: [UserModel.Task(completed: false,
+    static let testUserModel0: User = User(name: "Test",
+                                                tasks: [User.Task(completed: false,
                                                                        title: "Jog",
                                                                        details: "10km"),
-                                                        UserModel.Task(completed: true,
+                                                        User.Task(completed: true,
                                                                        title: "Attend Meeting",
                                                                        details: "7am Meeting"),
-                                                        UserModel.Task(completed: false,
+                                                        User.Task(completed: false,
                                                                        title: "Make breakfast",
                                                                        details: "Bacon, eggs and toast.")])
     
-    static let testUserModel1: UserModel = UserModel(username: "Test1",
-                                                tasks: [UserModel.Task(completed: false,
+    static let testUserModel1: User = User(name: "Test1",
+                                                tasks: [User.Task(completed: false,
                                                                        title: "Jog",
                                                                        details: "10km"),
-                                                        UserModel.Task(completed: true,
+                                                        User.Task(completed: true,
                                                                        title: "Attend Meeting",
                                                                        details: "7am Meeting"),
-                                                        UserModel.Task(completed: false,
+                                                        User.Task(completed: false,
                                                                        title: "Make breakfast",
                                                                        details: "Bacon, eggs and toast.")])
 }
