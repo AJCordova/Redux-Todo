@@ -35,6 +35,8 @@
 		E1BCDA83286B495F007A2EF7 /* OnboardNewUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA82286B495F007A2EF7 /* OnboardNewUserState.swift */; };
 		E1BCDA85286B4A8A007A2EF7 /* OnboardingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA84286B4A8A007A2EF7 /* OnboardingReducer.swift */; };
 		E1BCDA88286B66C4007A2EF7 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA87286B66C4007A2EF7 /* URL+Extensions.swift */; };
+		E1BCDA8A286B7571007A2EF7 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA89286B7571007A2EF7 /* UsersListViewController.swift */; };
+		E1BCDA8C286B75FD007A2EF7 /* TodoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8B286B75FD007A2EF7 /* TodoEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		E1BCDA82286B495F007A2EF7 /* OnboardNewUserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardNewUserState.swift; sourceTree = "<group>"; };
 		E1BCDA84286B4A8A007A2EF7 /* OnboardingReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingReducer.swift; sourceTree = "<group>"; };
 		E1BCDA87286B66C4007A2EF7 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		E1BCDA89286B7571007A2EF7 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
+		E1BCDA8B286B75FD007A2EF7 /* TodoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 			children = (
 				E14C92C828698903005F0659 /* Components */,
 				E10D500B2867721A00B58D95 /* TodoViewController.swift */,
+				E1BCDA89286B7571007A2EF7 /* UsersListViewController.swift */,
+				E1BCDA8B286B75FD007A2EF7 /* TodoEditViewController.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 				E1BCDA83286B495F007A2EF7 /* OnboardNewUserState.swift in Sources */,
 				E17E1BCF2865A21000F01B92 /* User.swift in Sources */,
 				E198927A28683F96004417C8 /* AppRouter.swift in Sources */,
+				E1BCDA8C286B75FD007A2EF7 /* TodoEditViewController.swift in Sources */,
 				E14C92C328694785005F0659 /* UserFileServicesProtocol.swift in Sources */,
 				E10D500C2867721A00B58D95 /* TodoViewController.swift in Sources */,
 				E1BCDA81286B490A007A2EF7 /* OnboardNewUserAction.swift in Sources */,
@@ -387,6 +394,7 @@
 				E198927828683E22004417C8 /* AppReducer.swift in Sources */,
 				E198927D28684005004417C8 /* RoutingState.swift in Sources */,
 				E1B527EC28655DE700EB6CCC /* SceneDelegate.swift in Sources */,
+				E1BCDA8A286B7571007A2EF7 /* UsersListViewController.swift in Sources */,
 				E198928628685A44004417C8 /* SavedUserFilesState.swift in Sources */,
 				E14C92C528695647005F0659 /* UserFileServices.swift in Sources */,
 			);

@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TodoViewController: UIViewController {
     
@@ -14,6 +16,7 @@ class TodoViewController: UIViewController {
     lazy var changeUserButton: UIButton = UIButton()
     lazy var addTodoButton: UIButton = UIButton()
     lazy var todoTableView: UITableView = UITableView()
+    lazy var disposeBag = DisposeBag()
     
     // private var viewModel: TodoViewModelTypes
     private let todoTableCellID = "TodoTableViewCell"
@@ -24,9 +27,11 @@ class TodoViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         setupViews()
+        setupBindings()
     }
 }
 
+// MARK: Views set-up
 extension TodoViewController {
     func setupViews() {
         setupTodoHeaderLabel()
@@ -91,6 +96,23 @@ extension TodoViewController {
 
 extension TodoViewController: UITableViewDelegate {
     
+}
+
+// MARK: Bindings set-up
+extension TodoViewController {
+    func setupBindings() {
+        addTodoButton.rx.tap
+            .bind { 
+                self.navigationController?.present(TodoEditViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        changeUserButton.rx.tap
+            .bind {
+                self.navigationController?.present(UsersListViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 //    var encodedJson = ""
