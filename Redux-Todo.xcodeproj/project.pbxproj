@@ -37,6 +37,9 @@
 		E1BCDA88286B66C4007A2EF7 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA87286B66C4007A2EF7 /* URL+Extensions.swift */; };
 		E1BCDA8A286B7571007A2EF7 /* UsersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA89286B7571007A2EF7 /* UsersListViewController.swift */; };
 		E1BCDA8C286B75FD007A2EF7 /* TodoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8B286B75FD007A2EF7 /* TodoEditViewController.swift */; };
+		E1BCDA8E286B8C7E007A2EF7 /* ActiveUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */; };
+		E1BCDA90286B9064007A2EF7 /* ActiveUserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8F286B9064007A2EF7 /* ActiveUserReducer.swift */; };
+		E1BCDA92286B9157007A2EF7 /* ActiveUserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		E1BCDA87286B66C4007A2EF7 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		E1BCDA89286B7571007A2EF7 /* UsersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListViewController.swift; sourceTree = "<group>"; };
 		E1BCDA8B286B75FD007A2EF7 /* TodoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditViewController.swift; sourceTree = "<group>"; };
+		E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserState.swift; sourceTree = "<group>"; };
+		E1BCDA8F286B9064007A2EF7 /* ActiveUserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserReducer.swift; sourceTree = "<group>"; };
+		E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,7 @@
 				E198928028684AE0004417C8 /* RoutingAction.swift */,
 				E198928C28686898004417C8 /* FindSavedUserFilesAction.swift */,
 				E1BCDA80286B490A007A2EF7 /* OnboardNewUserAction.swift */,
+				E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -184,10 +191,11 @@
 		E1989283286857FA004417C8 /* Reducers */ = {
 			isa = PBXGroup;
 			children = (
-				E198927728683E22004417C8 /* AppReducer.swift */,
 				E198927E286840FD004417C8 /* RoutingReducer.swift */,
+				E198927728683E22004417C8 /* AppReducer.swift */,
 				E198928728685AE1004417C8 /* SavedUserFilesReducer.swift */,
 				E1BCDA84286B4A8A007A2EF7 /* OnboardingReducer.swift */,
+				E1BCDA8F286B9064007A2EF7 /* ActiveUserReducer.swift */,
 			);
 			path = Reducers;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 				E198927C28684005004417C8 /* RoutingState.swift */,
 				E198928528685A44004417C8 /* SavedUserFilesState.swift */,
 				E1BCDA82286B495F007A2EF7 /* OnboardNewUserState.swift */,
+				E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1BCDA8E286B8C7E007A2EF7 /* ActiveUserState.swift in Sources */,
 				E1B527EE28655DE700EB6CCC /* ViewController.swift in Sources */,
 				E198928F28687184004417C8 /* Constants.swift in Sources */,
 				E198927F286840FD004417C8 /* RoutingReducer.swift in Sources */,
@@ -389,6 +399,7 @@
 				E1BCDA8C286B75FD007A2EF7 /* TodoEditViewController.swift in Sources */,
 				E14C92C328694785005F0659 /* UserFileServicesProtocol.swift in Sources */,
 				E10D500C2867721A00B58D95 /* TodoViewController.swift in Sources */,
+				E1BCDA92286B9157007A2EF7 /* ActiveUserActions.swift in Sources */,
 				E1BCDA81286B490A007A2EF7 /* OnboardNewUserAction.swift in Sources */,
 				E198928128684AE0004417C8 /* RoutingAction.swift in Sources */,
 				E198927828683E22004417C8 /* AppReducer.swift in Sources */,
@@ -397,6 +408,7 @@
 				E1BCDA8A286B7571007A2EF7 /* UsersListViewController.swift in Sources */,
 				E198928628685A44004417C8 /* SavedUserFilesState.swift in Sources */,
 				E14C92C528695647005F0659 /* UserFileServices.swift in Sources */,
+				E1BCDA90286B9064007A2EF7 /* ActiveUserReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
