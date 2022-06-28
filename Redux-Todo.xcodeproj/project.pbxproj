@@ -40,7 +40,8 @@
 		E1BCDA8E286B8C7E007A2EF7 /* ActiveUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */; };
 		E1BCDA90286B9064007A2EF7 /* ActiveUserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8F286B9064007A2EF7 /* ActiveUserReducer.swift */; };
 		E1BCDA92286B9157007A2EF7 /* ActiveUserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */; };
-		E1BCDA94286BC5B6007A2EF7 /* EditTodoState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA93286BC5B6007A2EF7 /* EditTodoState.swift */; };
+		E1BCDA97286BC944007A2EF7 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA95286BC944007A2EF7 /* UserTableViewCell.swift */; };
+		E1BCDA98286BC944007A2EF7 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BCDA96286BC944007A2EF7 /* UserTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +82,8 @@
 		E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserState.swift; sourceTree = "<group>"; };
 		E1BCDA8F286B9064007A2EF7 /* ActiveUserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserReducer.swift; sourceTree = "<group>"; };
 		E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserActions.swift; sourceTree = "<group>"; };
-		E1BCDA93286BC5B6007A2EF7 /* EditTodoState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoState.swift; sourceTree = "<group>"; };
+		E1BCDA95286BC944007A2EF7 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		E1BCDA96286BC944007A2EF7 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,8 @@
 			children = (
 				E14C92CD28698BE3005F0659 /* TodoTableViewCell.swift */,
 				E14C92CE28698BE3005F0659 /* TodoTableViewCell.xib */,
+				E1BCDA95286BC944007A2EF7 /* UserTableViewCell.swift */,
+				E1BCDA96286BC944007A2EF7 /* UserTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -210,7 +214,6 @@
 				E198928528685A44004417C8 /* SavedUserFilesState.swift */,
 				E1BCDA82286B495F007A2EF7 /* OnboardNewUserState.swift */,
 				E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */,
-				E1BCDA93286BC5B6007A2EF7 /* EditTodoState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				E1B5280328659C4E00EB6CCC /* GoogleService-Info.plist in Resources */,
 				E1B527F328655DE800EB6CCC /* Assets.xcassets in Resources */,
 				E14C92D028698BE3005F0659 /* TodoTableViewCell.xib in Resources */,
+				E1BCDA98286BC944007A2EF7 /* UserTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +397,6 @@
 				E1BCDA88286B66C4007A2EF7 /* URL+Extensions.swift in Sources */,
 				E1BCDA85286B4A8A007A2EF7 /* OnboardingReducer.swift in Sources */,
 				E198928828685AE1004417C8 /* SavedUserFilesReducer.swift in Sources */,
-				E1BCDA94286BC5B6007A2EF7 /* EditTodoState.swift in Sources */,
 				E198928D28686898004417C8 /* FindSavedUserFilesAction.swift in Sources */,
 				E198927628682C6B004417C8 /* AppState.swift in Sources */,
 				E10D500A286771ED00B58D95 /* OnboardUserViewController.swift in Sources */,
@@ -405,6 +408,7 @@
 				E10D500C2867721A00B58D95 /* TodoViewController.swift in Sources */,
 				E1BCDA92286B9157007A2EF7 /* ActiveUserActions.swift in Sources */,
 				E1BCDA81286B490A007A2EF7 /* OnboardNewUserAction.swift in Sources */,
+				E1BCDA97286BC944007A2EF7 /* UserTableViewCell.swift in Sources */,
 				E198928128684AE0004417C8 /* RoutingAction.swift in Sources */,
 				E198927828683E22004417C8 /* AppReducer.swift in Sources */,
 				E198927D28684005004417C8 /* RoutingState.swift in Sources */,
