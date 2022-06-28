@@ -7,8 +7,11 @@ target 'Redux-Todo' do
 
   # Pods for Redux-Todo
   pod 'ReSwift'
+  
+  # Constraints
   pod 'SnapKit', '~> 5.6.0'
   
+  # Bindings
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
 
