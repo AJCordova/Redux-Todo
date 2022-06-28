@@ -19,6 +19,12 @@ protocol UserFileServicesProtocol {
     func exists(file at: URL) -> Bool
     
     func doesUserFileExist(name: String) -> Bool
+    
+    func saveToJSON(containing: String, to path: AppDirectories, withName name: String) -> Bool
+    
+    func readFromJSON(file at: URL) -> String
+    
+    func loadFirstUser()
 }
 
 extension UserFileServicesProtocol {
@@ -72,7 +78,7 @@ extension UserFileServicesProtocol {
         do {
             fileURLs = try FileManager.default.contentsOfDirectory(at: todoFolderURL,
                                                                    includingPropertiesForKeys: nil)
-            
+        
         } catch {
             print(error.localizedDescription)
             fileURLs = []
@@ -95,5 +101,45 @@ extension UserFileServicesProtocol {
                 return false
             }
         }
+    }
+    
+    func saveToJSON(containing: String, to path: AppDirectories, withName name: String) -> Bool {
+        let filePath = getURL(for: path).path + "/" + name
+        let data: Data? = containing.data(using: .utf8)
+        return FileManager.default.createFile(atPath: filePath, contents: data, attributes: nil)
+    }
+    
+    func loadFirstUser(){
+        let todoFolderURL = getURL(for: .TodoDirectory)
+        var user: User = User()
+        do {
+            let fileURLs = try FileManager.default.contentsOfDirectory(at: todoFolderURL,
+                                                                       includingPropertiesForKeys: nil)
+            
+            if !fileURLs.isEmpty {
+                let encodedJSON = readFromJSON(file: fileURLs[0])
+                user = try JSONDecoder().decode(User.self, from: Data(encodedJSON.utf8))
+                
+                DispatchQueue.main.async {
+                    store.dispatch(
+                        LoadUserAction(user: user)
+                    )
+                }
+            }
+        
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func readFromJSON(file at: URL) -> String {
+        let fileContents = FileManager.default.contents(atPath: at.path)
+        let fileContentsAsString = String(bytes: fileContents!, encoding: .utf8)
+        
+        if let fileContentsAsString = fileContentsAsString {
+            return fileContentsAsString
+        }
+        
+        return ""
     }
 }
