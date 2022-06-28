@@ -8,12 +8,16 @@
 import Foundation
 import UIKit
 import SnapKit
+import ReSwift
+import RxSwift
+import RxCocoa
 
 class NewUserViewController: UIViewController {
     
     lazy var greetingBannerLabel: UILabel = UILabel()
     lazy var usernameTextField: UITextField = UITextField()
     lazy var continueButton: UIButton = UIButton()
+    lazy var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +25,7 @@ class NewUserViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         setupViews()
+        setupBindings()
     }
     
     override func viewDidLayoutSubviews() {
@@ -35,14 +40,15 @@ class NewUserViewController: UIViewController {
     }
 }
 
+// MARK: view set-up
 extension NewUserViewController {
-    func setupViews() {
+    private func setupViews() {
         setupGreetingBanner()
         setupUsernameTextField()
         setupContinueButton()
     }
     
-    func setupGreetingBanner() {
+    private func setupGreetingBanner() {
         greetingBannerLabel.text = "Hello,"
         greetingBannerLabel.font = .boldSystemFont(ofSize: 30)
         greetingBannerLabel.textAlignment = .center
@@ -54,34 +60,51 @@ extension NewUserViewController {
         }
     }
     
-    func setupUsernameTextField() {
-        usernameTextField.placeholder = "What is your name?"
+    private func setupUsernameTextField() {
+        usernameTextField.placeholder = "Tell us your name"
         usernameTextField.textAlignment = .center
         usernameTextField.autocorrectionType = .no
         usernameTextField.autocapitalizationType = .none
-        usernameTextField.font = .boldSystemFont(ofSize: 20)
+        usernameTextField.font = .boldSystemFont(ofSize: 30)
         view.addSubview(usernameTextField)
         
         usernameTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(greetingBannerLabel.snp.bottom).offset(50)
+            make.width.equalToSuperview().offset(-50)
+            make.top.equalTo(greetingBannerLabel.snp.bottom).offset(30)
         }
     }
     
-    func setupContinueButton() {
-        continueButton.setImage(UIImage(systemName: "arrow.right"),
-                                for: .normal)
+    private func setupContinueButton() {
+        let imageConfig = UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 30),
+                                                      scale: .medium)
+        
+        let continueButtonImage = UIImage(systemName: "arrow.right",
+                                            withConfiguration: imageConfig)
+        
+        continueButton.setImage(continueButtonImage, for: .normal)
         continueButton.tintColor = .systemGreen
         continueButton.isEnabled = false
         view.addSubview(continueButton)
         
         continueButton.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.width.equalTo(30)
-            make.leading.equalTo(usernameTextField.snp.trailing).offset(20)
-            make.top.equalTo(greetingBannerLabel.snp.bottom).offset(50)
+            make.height.width.equalTo(30)
+            make.centerX.equalToSuperview()
+            make.top.equalTo(usernameTextField.snp.bottom).offset(20)
         }
     }
-    
+}
+
+extension NewUserViewController {
+    private func setupBindings() {
+        usernameTextField.rx.text.orEmpty.distinctUntilChanged()
+            .map { !$0.isEmpty ? true : false  }
+            .bind(to: self.continueButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        continueButton.rx.tap.bind {
+            
+        }
+    }
 }
 
