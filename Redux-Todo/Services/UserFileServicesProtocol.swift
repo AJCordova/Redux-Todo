@@ -17,6 +17,8 @@ protocol UserFileServicesProtocol {
     func createTodoDirectory()
     
     func exists(file at: URL) -> Bool
+    
+    func doesUserFileExist(name: String) -> Bool
 }
 
 extension UserFileServicesProtocol {
@@ -58,6 +60,39 @@ extension UserFileServicesProtocol {
                 try FileManager.default.createDirectory(at: folderURL, withIntermediateDirectories: false)
             } catch {
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func doesUserFileExist(name: String) -> Bool {
+        let todoFolderURL = getURL(for: .TodoDirectory)
+        var fileURLs: [URL]
+        var savedUsers: [String]
+        
+        do {
+            fileURLs = try FileManager.default.contentsOfDirectory(at: todoFolderURL,
+                                                                   includingPropertiesForKeys: nil)
+            
+        } catch {
+            print(error.localizedDescription)
+            fileURLs = []
+        }
+        
+        if fileURLs.isEmpty {
+            return false
+        } else {
+            for var url in fileURLs {
+                url.hasHiddenExtension = true
+            }
+            
+            savedUsers = fileURLs.map {
+                $0.localizedName ?? $0.lastPathComponent
+            }
+            
+            if savedUsers.contains(name) {
+                return true
+            } else {
+                return false
             }
         }
     }
