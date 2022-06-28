@@ -7,6 +7,4 @@
 
 import Foundation
 
-struct UserFileServices : UserFileServicesProtocol {
-    
-}
+struct UserFileServices : UserFileServicesProtocol {}
