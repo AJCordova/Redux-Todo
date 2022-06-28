@@ -51,6 +51,7 @@ class OnboardUserViewController: UIViewController {
     }
 }
 
+// MARK: New state changes
 extension OnboardUserViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = OnboardNewUserState
     
@@ -120,6 +121,7 @@ extension OnboardUserViewController {
     }
 }
 
+// MARK: Set-up bindings
 extension OnboardUserViewController {
     private func setupBindings() {
         usernameTextField.rx.text.orEmpty.distinctUntilChanged()
@@ -130,11 +132,41 @@ extension OnboardUserViewController {
         createNewUser.rx.tap
             .bind {
                 guard let username = self.usernameTextField.text else { return }
-                    store.dispatch(
-                        OnboardNewUserAction(name: username)
-                    )
+                self.createNewUserFile(username: username)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: Functionality
+extension OnboardUserViewController {
+    
+    private func createNewUserFile(username: String) {
+        let fileServices = UserFileServices()
+        let hasSavedDirectory = fileServices.exists(file: fileServices.getURL(for: .TodoDirectory))
+        
+        if !hasSavedDirectory {
+            fileServices.createTodoDirectory()
+        }
+        
+        if fileServices.doesUserFileExist(name: username) {
+            return
+        }
+        
+        do {
+            let data = try JSONEncoder().encode(User(name: username, tasks: []))
+            if let jsonString = String(data: data, encoding: .utf8) {
+                let newFileURL = fileServices.getURL(for: .TodoDirectory).appendingPathComponent("\(username).json")
+                
+                try jsonString.write(to: newFileURL,
+                                     atomically: true,
+                                     encoding: .utf8)
+                
+                store.dispatch(OnboardNewUserAction(name: username))
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
