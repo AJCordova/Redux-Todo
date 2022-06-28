@@ -7,12 +7,6 @@
 
 import ReSwift
 
-enum RoutingDestination {
-    case root
-    case newUser
-    case todo
-}
-
 final class AppRouter {
     let navigationController: UINavigationController
     
@@ -29,6 +23,10 @@ final class AppRouter {
     
     fileprivate func pushViewController(viewController: UIViewController, animated: Bool) {
         navigationController.pushViewController(viewController, animated: animated)
+    }
+    
+    fileprivate func presentViewController(viewController: UIViewController, animated: Bool) {
+        navigationController.present(viewController, animated: animated)
     }
 }
 
