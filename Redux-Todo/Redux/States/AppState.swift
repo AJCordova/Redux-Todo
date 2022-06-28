@@ -11,4 +11,5 @@ struct AppState {
     let routingState: RoutingState
     let savedUserFilesState: SavedUserFilesState
     let onboardNewUserState: OnboardNewUserState
+    let activeUserState: ActiveUserState
 }
