@@ -13,5 +13,4 @@ struct UserServiceAction: Action {
 
 enum UserServices {
     case checkForSavedUserFiles
-    case createNewUser
 }

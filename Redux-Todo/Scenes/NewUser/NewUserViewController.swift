@@ -16,7 +16,7 @@ class NewUserViewController: UIViewController {
     
     lazy var greetingBannerLabel: UILabel = UILabel()
     lazy var usernameTextField: UITextField = UITextField()
-    lazy var continueButton: UIButton = UIButton()
+    lazy var createNewUser: UIButton = UIButton()
     lazy var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -82,12 +82,12 @@ extension NewUserViewController {
         let continueButtonImage = UIImage(systemName: "arrow.right",
                                             withConfiguration: imageConfig)
         
-        continueButton.setImage(continueButtonImage, for: .normal)
-        continueButton.tintColor = .systemGreen
-        continueButton.isEnabled = false
-        view.addSubview(continueButton)
+        createNewUser.setImage(continueButtonImage, for: .normal)
+        createNewUser.tintColor = .systemGreen
+        createNewUser.isHidden = false
+        view.addSubview(createNewUser)
         
-        continueButton.snp.makeConstraints { make in
+        createNewUser.snp.makeConstraints { make in
             make.height.width.equalTo(30)
             make.centerX.equalToSuperview()
             make.top.equalTo(usernameTextField.snp.bottom).offset(20)
@@ -98,12 +98,14 @@ extension NewUserViewController {
 extension NewUserViewController {
     private func setupBindings() {
         usernameTextField.rx.text.orEmpty.distinctUntilChanged()
-            .map { !$0.isEmpty ? true : false  }
-            .bind(to: self.continueButton.rx.isEnabled)
+            .map { $0.isEmpty ? true : false  }
+            .bind(to: self.createNewUser.rx.isHidden)
             .disposed(by: disposeBag)
         
-        continueButton.rx.tap.bind {
-            
+        createNewUser.rx.tap.bind {
+//            store.dispatch(
+//
+//            )
         }
     }
 }
