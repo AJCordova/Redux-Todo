@@ -36,10 +36,8 @@ extension AppRouter: StoreSubscriber {
     func newState(state: RoutingState) {
         switch state.navigationState {
         case .newUser:
-            // need viewmodel
-            pushViewController(viewController: NewUserViewController(), animated: true)
+            pushViewController(viewController: OnboardUserViewController(), animated: true)
         case .todo:
-            // need viewmodel
             pushViewController(viewController: TodoViewController(), animated: true)
         case .root:
             pushViewController(viewController: ViewController(), animated: true)
