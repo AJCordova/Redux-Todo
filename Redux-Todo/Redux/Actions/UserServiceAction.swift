@@ -10,3 +10,8 @@ import ReSwift
 struct UserServiceAction: Action {
     let userServiceAction: UserServices
 }
+
+enum UserServices {
+    case checkForSavedUserFiles
+    case createNewUser
+}
