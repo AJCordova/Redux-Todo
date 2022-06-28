@@ -10,3 +10,9 @@ import ReSwift
 struct RoutingAction: Action {
     let destination: RoutingDestination
 }
+
+enum RoutingDestination {
+    case root
+    case newUser
+    case todo
+}
