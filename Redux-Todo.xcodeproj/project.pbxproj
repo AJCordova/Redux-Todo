@@ -40,6 +40,7 @@
 		E1BCDA8E286B8C7E007A2EF7 /* ActiveUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */; };
 		E1BCDA90286B9064007A2EF7 /* ActiveUserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA8F286B9064007A2EF7 /* ActiveUserReducer.swift */; };
 		E1BCDA92286B9157007A2EF7 /* ActiveUserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */; };
+		E1BCDA94286BC5B6007A2EF7 /* EditTodoState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA93286BC5B6007A2EF7 /* EditTodoState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserState.swift; sourceTree = "<group>"; };
 		E1BCDA8F286B9064007A2EF7 /* ActiveUserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserReducer.swift; sourceTree = "<group>"; };
 		E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserActions.swift; sourceTree = "<group>"; };
+		E1BCDA93286BC5B6007A2EF7 /* EditTodoState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				E198928528685A44004417C8 /* SavedUserFilesState.swift */,
 				E1BCDA82286B495F007A2EF7 /* OnboardNewUserState.swift */,
 				E1BCDA8D286B8C7E007A2EF7 /* ActiveUserState.swift */,
+				E1BCDA93286BC5B6007A2EF7 /* EditTodoState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				E1BCDA88286B66C4007A2EF7 /* URL+Extensions.swift in Sources */,
 				E1BCDA85286B4A8A007A2EF7 /* OnboardingReducer.swift in Sources */,
 				E198928828685AE1004417C8 /* SavedUserFilesReducer.swift in Sources */,
+				E1BCDA94286BC5B6007A2EF7 /* EditTodoState.swift in Sources */,
 				E198928D28686898004417C8 /* FindSavedUserFilesAction.swift in Sources */,
 				E198927628682C6B004417C8 /* AppState.swift in Sources */,
 				E10D500A286771ED00B58D95 /* OnboardUserViewController.swift in Sources */,
