@@ -154,16 +154,14 @@ extension OnboardUserViewController {
         }
         
         do {
+            // TODO: Move to user services
             let data = try JSONEncoder().encode(User(name: username, tasks: []))
             if let jsonString = String(data: data, encoding: .utf8) {
-                let newFileURL = fileServices.getURL(for: .TodoDirectory).appendingPathComponent("\(username).json")
-                
-                try jsonString.write(to: newFileURL,
-                                     atomically: true,
-                                     encoding: .utf8)
-                
-                store.dispatch(OnboardNewUserAction(name: username))
+                if fileServices.saveToJSON(containing: jsonString, to: .TodoDirectory, withName: username + ".json") {
+                    store.dispatch(OnboardNewUserAction(name: username))
+                }
             }
+            
         } catch {
             print(error.localizedDescription)
         }
