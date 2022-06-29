@@ -12,13 +12,13 @@ import RxSwift
 
 class TodoEditViewController: UIViewController {
     
-    lazy var cancelButton: UIButton = UIButton()
+    lazy var cancelButton: UIButton = UIButton(type: .system) as UIButton
     lazy var saveButton: UIButton = UIButton()
     lazy var titleLabel: UILabel = UILabel()
     lazy var titleTextField: UITextField = UITextField()
     lazy var detailLabel: UILabel = UILabel()
     lazy var detailTextField: UITextView = UITextView()
-    lazy var deleteButton: UIButton = UIButton()
+    lazy var deleteButton: UIButton = UIButton(type: .system) as UIButton
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -43,6 +43,7 @@ extension TodoEditViewController {
     
     func setupCancelButton() {
         cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.tintColor = .systemBlue
         view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { make in
@@ -53,9 +54,9 @@ extension TodoEditViewController {
         }
     }
     
-    func setupSaveButton() {
+    func setupDeleteButton() {
         deleteButton.setTitle("DELETE", for: .normal)
-        deleteButton.tintColor = .systemRed
+        deleteButton.tintColor = .systemBlue
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
@@ -117,7 +118,7 @@ extension TodoEditViewController {
         }
     }
     
-    func setupDeleteButton() {
+    func setupSaveButton() {
         saveButton.backgroundColor = .systemGreen
         saveButton.setTitle("Save Todo", for: .normal)
         saveButton.layer.cornerRadius = 9.0
