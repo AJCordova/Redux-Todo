@@ -17,8 +17,8 @@ class TodoViewController: UIViewController {
     lazy var changeUserButton: UIButton = UIButton()
     lazy var addTodoButton: UIButton = UIButton()
     lazy var tableView: UITableView = UITableView()
-    lazy var disposeBag = DisposeBag()
     
+    private let disposeBag = DisposeBag()
     private let todoTableCellID = "TodoTableViewCell"
     private var data: PublishSubject<[Task]> = PublishSubject<[Task]>()
     private let userServices = UserFileServices()
@@ -132,21 +132,24 @@ extension TodoViewController {
     func setupBindings() {
         addTodoButton.rx.tap
             .bind {
-                //self.navigationController?.present(TodoEditViewController(), animated: <#T##Bool#>)
-//                DispatchQueue.main.async {
-//                    store.dispatch(
-//                        RoutingAction(destination: .editTodo)
-//                    )
-//                }
+                DispatchQueue.main.async {
+                    store.dispatch(RoutingDestination.editTodo(mode: .create, task: nil))
+                }
             }
+            .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(Task.self)
+            .subscribe(onNext: { task in
+                DispatchQueue.main.async {
+                    store.dispatch(RoutingDestination.editTodo(mode: .edit, task: task))
+                }
+            })
             .disposed(by: disposeBag)
         
         changeUserButton.rx.tap
             .bind {
                 DispatchQueue.main.async {
-                    store.dispatch(
-                        RoutingAction(destination: .changeUser)
-                    )
+                    store.dispatch(RoutingDestination.changeUser)
                 }
             }
             .disposed(by: disposeBag)
