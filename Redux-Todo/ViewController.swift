@@ -38,7 +38,7 @@ extension ViewController: StoreSubscriber {
         case .findSavedUserFiles:
             DispatchQueue.main.async {
                 store.dispatch(
-                    hasSavedDirectory ? RoutingAction(destination: .todo) : RoutingAction(destination: .newUser)
+                    hasSavedDirectory ? RoutingDestination.todo : RoutingDestination.newUser
                 )
             }
         }

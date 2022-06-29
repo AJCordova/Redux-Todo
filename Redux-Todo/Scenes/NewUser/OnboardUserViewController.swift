@@ -17,7 +17,8 @@ class OnboardUserViewController: UIViewController {
     lazy var greetingBannerLabel: UILabel = UILabel()
     lazy var usernameTextField: UITextField = UITextField()
     lazy var createNewUser: UIButton = UIButton()
-    lazy var disposeBag = DisposeBag()
+    
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,7 @@ extension OnboardUserViewController: StoreSubscriber {
         if !state.name.isEmpty {
             DispatchQueue.main.async {
                 store.dispatch(
-                    RoutingAction(destination: .todo)
+                    RoutingDestination.todo
                 )
             }
         }
