@@ -12,11 +12,11 @@ struct LoadUserAction: Action {
 }
 
 struct UpdateTasksAction: Action {
-    let tasks: [User.Task]
+    let tasks: [Task]
 }
 
 struct AddTaskAction: Action {
-    let task: User.Task
+    let task: Task
 }
 
 struct RemoveTaskAction: Action {

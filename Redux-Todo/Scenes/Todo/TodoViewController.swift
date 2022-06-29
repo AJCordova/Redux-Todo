@@ -20,7 +20,7 @@ class TodoViewController: UIViewController {
     lazy var disposeBag = DisposeBag()
     
     private let todoTableCellID = "TodoTableViewCell"
-    private var data: PublishSubject<[User.Task]> = PublishSubject<[User.Task]>()
+    private var data: PublishSubject<[Task]> = PublishSubject<[Task]>()
     private let userServices = UserFileServices()
     
     override func viewDidLoad() {
@@ -132,11 +132,12 @@ extension TodoViewController {
     func setupBindings() {
         addTodoButton.rx.tap
             .bind {
-                DispatchQueue.main.async {
-                    store.dispatch(
-                        RoutingAction(destination: .editTodo)
-                    )
-                }
+                //self.navigationController?.present(TodoEditViewController(), animated: <#T##Bool#>)
+//                DispatchQueue.main.async {
+//                    store.dispatch(
+//                        RoutingAction(destination: .editTodo)
+//                    )
+//                }
             }
             .disposed(by: disposeBag)
         
