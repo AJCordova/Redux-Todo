@@ -7,18 +7,10 @@
 
 import ReSwift
 
-struct LoadUserAction: Action {
-    let user: User
-}
-
-struct UpdateTasksAction: Action {
-    let tasks: [Task]
-}
-
-struct AddTaskAction: Action {
-    let task: Task
-}
-
-struct RemoveTaskAction: Action {
-    let index: Int
+enum ActiveUserActions: Action {
+    case getCurrentUser(user: User)
+    case getTasks(tasks: [Task])
+    case add(task: Task)
+    case edit(task: Task)
+    case delete(index: Int)
 }

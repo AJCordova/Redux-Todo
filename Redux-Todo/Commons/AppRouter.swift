@@ -41,8 +41,8 @@ extension AppRouter: StoreSubscriber {
             push(viewController: TodoViewController(), animated: true)
         case .root:
             push(viewController: ViewController(), animated: true)
-        case .editTodo:
-            present(viewController: TodoEditViewController(), animated: true)
+        case .editTodo(let mode, let task):
+            present(viewController: TodoEditViewController(with: mode, task: task), animated: true)
         case .changeUser:
             present(viewController: UsersListViewController(), animated: true)
         }
