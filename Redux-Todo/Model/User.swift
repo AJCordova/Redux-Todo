@@ -8,16 +8,10 @@
 import Foundation
 
 
-struct User: Codable {
+struct User: Codable, Equatable {
     
     var name: String?
     var tasks: [Task]?
-}
-
-struct Task: Codable {
-    var completed: Bool
-    var title: String
-    var details: String
 }
 
 struct SampleData {
