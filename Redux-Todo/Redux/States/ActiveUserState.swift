@@ -7,6 +7,8 @@
 
 import ReSwift
 
-struct ActiveUserState {    
-    var user: User? = nil
+struct ActiveUserState {
+    var user: User?
+    var tasks: [Task] = []
+    var selectedTask: Task?
 }
