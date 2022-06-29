@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6BBD045D8CD2F66D57A7734E /* Pods_Redux_Todo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABA9AA9BA31F0ED37A280EA4 /* Pods_Redux_Todo.framework */; };
+		E104A55F286C03F800C06A96 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104A55E286C03F800C06A96 /* Task.swift */; };
 		E10D500A286771ED00B58D95 /* OnboardUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D5009286771ED00B58D95 /* OnboardUserViewController.swift */; };
 		E10D500C2867721A00B58D95 /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D500B2867721A00B58D95 /* TodoViewController.swift */; };
 		E14C92C328694785005F0659 /* UserFileServicesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C92C228694785005F0659 /* UserFileServicesProtocol.swift */; };
@@ -48,6 +49,7 @@
 		4E377A8AF907BFD22BDA6713 /* Pods-Redux-Todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux-Todo.debug.xcconfig"; path = "Target Support Files/Pods-Redux-Todo/Pods-Redux-Todo.debug.xcconfig"; sourceTree = "<group>"; };
 		99EAD31540CA430A5D02110B /* Pods-Redux-Todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Redux-Todo.release.xcconfig"; path = "Target Support Files/Pods-Redux-Todo/Pods-Redux-Todo.release.xcconfig"; sourceTree = "<group>"; };
 		ABA9AA9BA31F0ED37A280EA4 /* Pods_Redux_Todo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Redux_Todo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E104A55E286C03F800C06A96 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		E10D5009286771ED00B58D95 /* OnboardUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardUserViewController.swift; sourceTree = "<group>"; };
 		E10D500B2867721A00B58D95 /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		E14C92C228694785005F0659 /* UserFileServicesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFileServicesProtocol.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				E17E1BCE2865A21000F01B92 /* User.swift */,
+				E104A55E286C03F800C06A96 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				E1BCDA81286B490A007A2EF7 /* OnboardNewUserAction.swift in Sources */,
 				E1BCDA97286BC944007A2EF7 /* UserTableViewCell.swift in Sources */,
 				E198928128684AE0004417C8 /* RoutingAction.swift in Sources */,
+				E104A55F286C03F800C06A96 /* Task.swift in Sources */,
 				E198927828683E22004417C8 /* AppReducer.swift in Sources */,
 				E198927D28684005004417C8 /* RoutingState.swift in Sources */,
 				E1B527EC28655DE700EB6CCC /* SceneDelegate.swift in Sources */,
