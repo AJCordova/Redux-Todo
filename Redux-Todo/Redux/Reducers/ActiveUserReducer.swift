@@ -10,21 +10,23 @@ import ReSwift
 func activeUserReducer(action: Action, state: ActiveUserState?) -> ActiveUserState {
     var state = state ?? ActiveUserState()
     
-    switch action {
-    case let action as UpdateTasksAction:
-        state.user?.tasks = action.tasks
-        
-    case let action as AddTaskAction:
-        state.user?.tasks?.append(action.task)
-        
-    case let action as RemoveTaskAction:
-        state.user?.tasks?.remove(at: action.index)
+    guard let action = action as? ActiveUserActions else { return state }
     
-    case let action as LoadUserAction:
-        state.user = action.user
-
-    default:
-        break
+    switch action {
+    case .getCurrentUser(let user):
+        state.user = user
+        
+    case .getTasks(let tasks):
+        state.tasks = tasks
+        
+    case .add(let task):
+        state.tasks.append(task)
+        
+    case .edit(let task):
+        state.selectedTask = task
+        
+    case .delete(let index):
+        state.tasks.remove(at: index)
     }
     
     return state

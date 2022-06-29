@@ -10,11 +10,19 @@ import ReSwift
 func routingReducer(action: Action, state: RoutingState?) -> RoutingState {
     var state = state ?? RoutingState()
     
+    guard let action = action as? RoutingDestination else { return state }
+    
     switch action {
-    case let routingAction as RoutingAction:
-        state.navigationState = routingAction.destination
-        
-    default: break
+    case .root:
+        state.navigationState = .root
+    case .newUser:
+        state.navigationState = .newUser
+    case .todo:
+        state.navigationState = .todo
+    case .editTodo(let mode, let task):
+        state.navigationState = .editTodo(mode: mode, task: task)
+    case .changeUser:
+        state.navigationState = .changeUser
     }
     
     return state
