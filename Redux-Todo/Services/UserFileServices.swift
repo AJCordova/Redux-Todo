@@ -119,14 +119,7 @@ struct UserFileServices : UserFileServicesProtocol {
                         ActiveUserActions.getCurrentUser(user: user)
                     )
                 }
-            } else {
-                DispatchQueue.main.async {
-                    store.dispatch(
-                        ActiveUserActions.getCurrentUser(user: SampleData.testUserModel1)
-                    )
-                }
             }
-        
         } catch {
             print(error.localizedDescription)
         }
