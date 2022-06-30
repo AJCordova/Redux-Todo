@@ -26,6 +26,7 @@
 		E198928828685AE1004417C8 /* SavedUserFilesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928728685AE1004417C8 /* SavedUserFilesReducer.swift */; };
 		E198928D28686898004417C8 /* FindSavedUserFilesAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928C28686898004417C8 /* FindSavedUserFilesAction.swift */; };
 		E198928F28687184004417C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198928E28687184004417C8 /* Constants.swift */; };
+		E1AFC6FA286DD080006BE280 /* AppRooter+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AFC6F9286DD080006BE280 /* AppRooter+Coordinator.swift */; };
 		E1B527EA28655DE700EB6CCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527E928655DE700EB6CCC /* AppDelegate.swift */; };
 		E1B527EC28655DE700EB6CCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */; };
 		E1B527EE28655DE700EB6CCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B527ED28655DE700EB6CCC /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 		E198928728685AE1004417C8 /* SavedUserFilesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedUserFilesReducer.swift; sourceTree = "<group>"; };
 		E198928C28686898004417C8 /* FindSavedUserFilesAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSavedUserFilesAction.swift; sourceTree = "<group>"; };
 		E198928E28687184004417C8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E1AFC6F9286DD080006BE280 /* AppRooter+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppRooter+Coordinator.swift"; sourceTree = "<group>"; };
 		E1B527E628655DE700EB6CCC /* Redux-Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Redux-Todo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B527E928655DE700EB6CCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				E1B527E928655DE700EB6CCC /* AppDelegate.swift */,
 				E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */,
 				E198927928683F96004417C8 /* AppRouter.swift */,
+				E1AFC6F9286DD080006BE280 /* AppRooter+Coordinator.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1BCDA8E286B8C7E007A2EF7 /* ActiveUserState.swift in Sources */,
+				E1AFC6FA286DD080006BE280 /* AppRooter+Coordinator.swift in Sources */,
 				E1B527EE28655DE700EB6CCC /* ViewController.swift in Sources */,
 				E198928F28687184004417C8 /* Constants.swift in Sources */,
 				E198927F286840FD004417C8 /* RoutingReducer.swift in Sources */,
