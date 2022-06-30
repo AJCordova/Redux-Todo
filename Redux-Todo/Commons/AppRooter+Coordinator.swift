@@ -20,7 +20,7 @@ extension AppRouter: TaskActionsDelegate {
     }
     
     func editAction(action: TaskAction, selectedTask: Task?) {
-        navigationController.present(TodoEditViewController(action: .add, task: selectedTask), animated: true)
+        navigationController.present(TodoEditViewController(action: .edit, task: selectedTask), animated: true)
     }
     
 //    func deleteAction(action: TaskAction, selectedTask: Task?) {

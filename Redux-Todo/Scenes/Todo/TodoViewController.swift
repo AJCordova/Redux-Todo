@@ -72,7 +72,7 @@ extension TodoViewController {
         
         tableView.rx.modelSelected(Task.self)
             .subscribe(onNext: { task in
-                
+                self.delegate?.editAction(action: .edit, selectedTask: task)
             })
             .disposed(by: disposeBag)
         

@@ -50,6 +50,7 @@ class TodoEditViewController: UIViewController {
         
         setupViews()
         setupBindings()
+        setTask(task: task)
     }
     
     private func setTask(task: Task?) {
@@ -187,9 +188,21 @@ extension TodoEditViewController {
         saveButton.rx.tap
             .bind {
                 guard let title = self.titleTextField.text else { return }
-                store.dispatch(ActiveUserActions.add(task: Task(completed: false,
-                                                                title: title,
-                                                                details: self.detailTextField.text ?? "" )))
+
+                switch self.action {
+                case .add:
+                    store.dispatch(ActiveUserActions.add(task: Task(completed: false,
+                                                                    title: title,
+                                                                    details: self.detailTextField.text ?? "" )))
+                case .edit:
+                    guard var task = self.task else { return }
+                    task.title = title
+                    task.details = self.detailTextField.text ?? ""
+                    store.dispatch(ActiveUserActions.edit(task: task))
+                    
+                case .delete:
+                    break
+                }
             }
             .disposed(by: disposeBag)
         

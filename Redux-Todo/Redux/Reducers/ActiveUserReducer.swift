@@ -23,7 +23,9 @@ func activeUserReducer(action: Action, state: ActiveUserState?) -> ActiveUserSta
         state.user?.tasks?.append(task)
         
     case .edit(let task):
-        state.selectedTask = task
+        guard let changedTask = state.user?.tasks?.enumerated()
+            .first(where: { $0.element.id == task.id }) else { return state }
+        state.user?.tasks?[changedTask.offset] = task
         
     case .delete(let index):
         state.user?.tasks?.remove(at: index)
