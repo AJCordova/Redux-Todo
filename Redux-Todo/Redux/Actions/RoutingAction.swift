@@ -11,10 +11,6 @@ enum RoutingDestination: Action {
     case root
     case newUser
     case todo
-    case editTodo(mode: EditMode, task: Task?)
+    case editTodo
     case changeUser
-}
-
-enum EditMode {
-    case create, edit
 }

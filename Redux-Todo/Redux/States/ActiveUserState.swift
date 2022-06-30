@@ -7,7 +7,7 @@
 
 import ReSwift
 
-struct ActiveUserState {
+struct ActiveUserState: Equatable {
     var user: User?
     var tasks: [Task] = []
     var selectedTask: Task?

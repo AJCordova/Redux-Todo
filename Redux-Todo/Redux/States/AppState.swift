@@ -8,8 +8,8 @@
 import ReSwift
 
 struct AppState {
-    let routingState: RoutingState
-    let savedUserFilesState: SavedUserFilesState
-    let onboardNewUserState: OnboardNewUserState
-    let activeUserState: ActiveUserState
+    var routingState: RoutingState = RoutingState()
+    var savedUserFilesState: SavedUserFilesState = SavedUserFilesState()
+    var onboardNewUserState: OnboardNewUserState = OnboardNewUserState()
+    var activeUserState: ActiveUserState = ActiveUserState()
 }
