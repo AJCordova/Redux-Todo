@@ -12,7 +12,6 @@ class TodoTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var completedIndicator: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

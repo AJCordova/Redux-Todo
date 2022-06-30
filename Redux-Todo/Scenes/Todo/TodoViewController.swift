@@ -86,6 +86,7 @@ extension TodoViewController {
             .bind(to: tableView.rx.items) { (tableView, row, task) -> UITableViewCell in
                 let cell: TodoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell") as! TodoTableViewCell
                 cell.title.text = task.title
+                cell.completedIndicator.image = task.completed ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle")
                 return cell
             }
             .disposed(by: disposeBag)
