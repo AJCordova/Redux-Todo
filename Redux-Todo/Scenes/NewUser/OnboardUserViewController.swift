@@ -156,12 +156,7 @@ extension OnboardUserViewController {
         
         do {
             // TODO: Move to user services
-            let data = try JSONEncoder().encode(User(name: username, tasks: []))
-            if let jsonString = String(data: data, encoding: .utf8) {
-                if fileServices.saveToJSON(containing: jsonString, to: .TodoDirectory, withName: username + ".json") {
-                    store.dispatch(OnboardNewUserAction(name: username))
-                }
-            }
+            fileServices.saveToJSON(user: User(name: username, tasks: []))
             
         } catch {
             print(error.localizedDescription)

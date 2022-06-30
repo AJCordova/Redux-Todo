@@ -63,10 +63,12 @@ extension TodoEditViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = ActiveUserState
     
     func newState(state: ActiveUserState) {
-        if action == .add {
-            
-            self.dismiss(animated: true)
-        }
+
+        guard let user = state.user else { return }
+        let fileService = UserFileServices()
+        fileService.saveToJSON(user: user)
+        
+        self.dismiss(animated: true)
     }
 }
 

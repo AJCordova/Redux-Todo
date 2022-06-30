@@ -90,6 +90,19 @@ struct UserFileServices : UserFileServicesProtocol {
         return FileManager.default.createFile(atPath: filePath, contents: data, attributes: nil)
     }
     
+    func saveToJSON(user: User) {
+        do {
+            let data = try JSONEncoder().encode(user)
+            if let jsonString = String(data: data, encoding: .utf8) {
+                if saveToJSON(containing: jsonString, to: .TodoDirectory, withName: user.name! + ".json") {
+                    store.dispatch(OnboardNewUserAction(name: user.name!))
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func loadFirstUser(){
         let todoFolderURL = getURL(for: .TodoDirectory)
         var user: User = User()
@@ -103,8 +116,13 @@ struct UserFileServices : UserFileServicesProtocol {
                 
                 DispatchQueue.main.async {
                     store.dispatch(
+                        ActiveUserActions.getCurrentUser(user: user)
+                    )
+                }
+            } else {
+                DispatchQueue.main.async {
+                    store.dispatch(
                         ActiveUserActions.getCurrentUser(user: SampleData.testUserModel1)
-                        //LoadUserAction(user: SampleData.testUserModel1)
                     )
                 }
             }
