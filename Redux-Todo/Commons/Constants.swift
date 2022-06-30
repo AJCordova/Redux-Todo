@@ -13,5 +13,5 @@ enum AppDirectories: String {
 }
 
 enum TaskAction {
-    case create, edit, delete
+    case add, edit, delete
 }

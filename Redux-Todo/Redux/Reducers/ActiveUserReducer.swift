@@ -17,16 +17,16 @@ func activeUserReducer(action: Action, state: ActiveUserState?) -> ActiveUserSta
         state.user = user
         
     case .getTasks(let tasks):
-        state.tasks = tasks
+        state.user?.tasks = tasks
         
     case .add(let task):
-        state.tasks.append(task)
+        state.user?.tasks?.append(task)
         
     case .edit(let task):
         state.selectedTask = task
         
     case .delete(let index):
-        state.tasks.remove(at: index)
+        state.user?.tasks?.remove(at: index)
     }
     
     return state

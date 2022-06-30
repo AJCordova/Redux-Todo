@@ -22,6 +22,8 @@ class TodoViewController: UIViewController {
     private var data: PublishSubject<[Task]> = PublishSubject<[Task]>()
     private let userServices = UserFileServices()
     
+    weak var delegate: TaskActionsDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -64,7 +66,7 @@ extension TodoViewController {
     func setupBindings() {
         addTodoButton.rx.tap
             .bind {
-                
+                self.delegate?.createAction(action: .add)
             }
             .disposed(by: disposeBag)
         
@@ -76,9 +78,7 @@ extension TodoViewController {
         
         changeUserButton.rx.tap
             .bind {
-                DispatchQueue.main.async {
-                    store.dispatch(RoutingDestination.changeUser)
-                }
+
             }
             .disposed(by: disposeBag)
         

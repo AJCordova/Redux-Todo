@@ -21,7 +21,7 @@ class TodoEditViewController: UIViewController {
     lazy var deleteButton: UIButton = UIButton(type: .system) as UIButton
     private let disposeBag = DisposeBag()
     
-    var action: TaskAction = .create
+    var action: TaskAction = .add
     var task: Task?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -49,6 +49,7 @@ class TodoEditViewController: UIViewController {
         }
         
         setupViews()
+        setupBindings()
     }
     
     private func setTask(task: Task?) {
@@ -62,7 +63,10 @@ extension TodoEditViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = ActiveUserState
     
     func newState(state: ActiveUserState) {
-        //
+        if action == .add {
+            
+            self.dismiss(animated: true)
+        }
     }
 }
 
@@ -93,7 +97,7 @@ extension TodoEditViewController {
     func setupDeleteButton() {
         deleteButton.setTitle("DELETE", for: .normal)
         deleteButton.tintColor = .systemBlue
-
+        deleteButton.isHidden = action == .add ? true : false
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
@@ -165,5 +169,32 @@ extension TodoEditViewController {
             make.bottom.equalToSuperview().offset(-50)
             make.left.right.equalToSuperview().inset(50)
         }
+    }
+}
+
+extension TodoEditViewController {
+    func setupBindings() {
+//        let shouldShowSaveButton = self.titleTextField.rx.text
+//            .map( { ($0?.isEmpty)! && ($0?.count)! > 2 })
+//            .share(replay: 1)
+//
+//        shouldShowSaveButton
+//            .bind(to: saveButton.rx.isHidden)
+//            .disposed(by: disposeBag)
+        
+        saveButton.rx.tap
+            .bind {
+                guard let title = self.titleTextField.text else { return }
+                store.dispatch(ActiveUserActions.add(task: Task(completed: false,
+                                                                title: title,
+                                                                details: self.detailTextField.text ?? "" )))
+            }
+            .disposed(by: disposeBag)
+        
+        cancelButton.rx.tap
+            .bind {
+                self.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 }
