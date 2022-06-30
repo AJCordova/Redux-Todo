@@ -19,7 +19,6 @@ class TodoViewController: UIViewController {
     lazy var tableView: UITableView = UITableView()
     
     private let disposeBag = DisposeBag()
-    private let todoTableCellID = "TodoTableViewCell"
     private var data: PublishSubject<[Task]> = PublishSubject<[Task]>()
     private let userServices = UserFileServices()
     
@@ -60,89 +59,18 @@ extension TodoViewController: StoreSubscriber {
         }
     }
 }
-
-// MARK: Views set-up
-extension TodoViewController {
-    func setupViews() {
-        setupTodoHeaderLabel()
-        setupChangeUserButton()
-        setupAddTodoButton()
-        setupTodoTableView()
-    }
-    
-    func setupTodoHeaderLabel() {
-        todoHeaderLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        view.addSubview(todoHeaderLabel)
-        
-        todoHeaderLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(80)
-            make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(20)
-        }
-    }
-    
-    func setupChangeUserButton() {
-        let imageConfig = UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 30),
-                                                      scale: .medium)
-        let changeUserButtonImage = UIImage(systemName: "person.crop.circle",
-                                            withConfiguration: imageConfig)
-        changeUserButton.setImage(changeUserButtonImage, for: .normal)
-        changeUserButton.tintColor = .systemGreen
-        changeUserButton.isEnabled = true
-        view.addSubview(changeUserButton)
-        
-        changeUserButton.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.width.equalTo(30)
-            make.top.equalToSuperview().offset(75)
-            make.trailing.equalToSuperview().offset(-20)
-        }
-    }
-    
-    func setupTodoTableView() {
-        tableView.register(UINib.init(nibName: "TodoTableViewCell", bundle: nil), forCellReuseIdentifier: todoTableCellID)
-        view.addSubview(tableView)
-        
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(todoHeaderLabel.snp.bottom).offset(50)
-            make.left.right.equalToSuperview().offset(20)
-            make.height.equalTo(540)
-        }
-    }
-    
-    func setupAddTodoButton() {
-        addTodoButton.backgroundColor = .systemGreen
-        addTodoButton.setTitle("Add Todo", for: .normal)
-        addTodoButton.layer.cornerRadius = 9.0
-        view.addSubview(addTodoButton)
-        
-        addTodoButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-50)
-            make.left.right.equalToSuperview().inset(50)
-        }
-    }
-}
-
-extension TodoViewController: UITableViewDelegate {
-    
-}
-
 // MARK: Bindings set-up
 extension TodoViewController {
     func setupBindings() {
         addTodoButton.rx.tap
             .bind {
-                DispatchQueue.main.async {
-                    store.dispatch(RoutingDestination.editTodo(mode: .create, task: nil))
-                }
+                
             }
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Task.self)
             .subscribe(onNext: { task in
-                DispatchQueue.main.async {
-                    store.dispatch(RoutingDestination.editTodo(mode: .edit, task: task))
-                }
+                
             })
             .disposed(by: disposeBag)
         
@@ -154,11 +82,9 @@ extension TodoViewController {
             }
             .disposed(by: disposeBag)
         
-        data
-            .bind(to: tableView.rx.items) { [self](tableView, row, task) -> TodoTableViewCell in
-                let cell = tableView.dequeueReusableCell(withIdentifier: self.todoTableCellID,
-                                                        for: IndexPath.init(row: row, section: 0)) as! TodoTableViewCell
-                
+        data.asObservable()
+            .bind(to: tableView.rx.items) { (tableView, row, task) -> UITableViewCell in
+                let cell: TodoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell") as! TodoTableViewCell
                 cell.title.text = task.title
                 return cell
             }

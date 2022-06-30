@@ -43,6 +43,7 @@
 		E1BCDA92286B9157007A2EF7 /* ActiveUserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */; };
 		E1BCDA97286BC944007A2EF7 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BCDA95286BC944007A2EF7 /* UserTableViewCell.swift */; };
 		E1BCDA98286BC944007A2EF7 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BCDA96286BC944007A2EF7 /* UserTableViewCell.xib */; };
+		E1E32F2D286D51B9007D5E38 /* TodoViewController+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E32F2C286D51B9007D5E38 /* TodoViewController+View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		E1BCDA91286B9157007A2EF7 /* ActiveUserActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserActions.swift; sourceTree = "<group>"; };
 		E1BCDA95286BC944007A2EF7 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		E1BCDA96286BC944007A2EF7 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		E1E32F2C286D51B9007D5E38 /* TodoViewController+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoViewController+View.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				E14C92C828698903005F0659 /* Components */,
 				E10D500B2867721A00B58D95 /* TodoViewController.swift */,
+				E1E32F2C286D51B9007D5E38 /* TodoViewController+View.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				E10D500A286771ED00B58D95 /* OnboardUserViewController.swift in Sources */,
 				E1BCDA83286B495F007A2EF7 /* OnboardNewUserState.swift in Sources */,
 				E17E1BCF2865A21000F01B92 /* User.swift in Sources */,
+				E1E32F2D286D51B9007D5E38 /* TodoViewController+View.swift in Sources */,
 				E198927A28683F96004417C8 /* AppRouter.swift in Sources */,
 				E1BCDA8C286B75FD007A2EF7 /* TodoEditViewController.swift in Sources */,
 				E14C92C328694785005F0659 /* UserFileServicesProtocol.swift in Sources */,
