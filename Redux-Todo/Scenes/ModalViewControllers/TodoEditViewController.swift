@@ -64,7 +64,6 @@ extension TodoEditViewController: StoreSubscriber {
     typealias StoreSubscriberStateType = ActiveUserState
     
     func newState(state: ActiveUserState) {
-
         guard let user = state.user else { return }
         let fileService = UserFileServices()
         fileService.saveToJSON(user: user)
@@ -203,6 +202,13 @@ extension TodoEditViewController {
                 case .delete:
                     break
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        deleteButton.rx.tap
+            .bind {
+                guard let task = self.task else { return }
+                store.dispatch(ActiveUserActions.delete(task: task))
             }
             .disposed(by: disposeBag)
         

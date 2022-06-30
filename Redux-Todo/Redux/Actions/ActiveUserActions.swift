@@ -12,5 +12,5 @@ enum ActiveUserActions: Action {
     case getTasks(tasks: [Task])
     case add(task: Task)
     case edit(task: Task)
-    case delete(index: Int)
+    case delete(task: Task)
 }

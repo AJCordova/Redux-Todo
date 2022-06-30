@@ -27,8 +27,10 @@ func activeUserReducer(action: Action, state: ActiveUserState?) -> ActiveUserSta
             .first(where: { $0.element.id == task.id }) else { return state }
         state.user?.tasks?[changedTask.offset] = task
         
-    case .delete(let index):
-        state.user?.tasks?.remove(at: index)
+    case .delete(let task):
+        guard let changedTask = state.user?.tasks?.enumerated()
+            .first(where: { $0.element.id == task.id }) else { return state }
+        state.user?.tasks?.remove(at: changedTask.offset)
     }
     
     return state
