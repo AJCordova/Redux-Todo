@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 import SnapKit
 import RxSwift
+import ReSwift
 
 class TodoEditViewController: UIViewController {
-    
     lazy var cancelButton: UIButton = UIButton(type: .system) as UIButton
     lazy var saveButton: UIButton = UIButton()
     lazy var titleLabel: UILabel = UILabel()
@@ -19,12 +19,34 @@ class TodoEditViewController: UIViewController {
     lazy var detailLabel: UILabel = UILabel()
     lazy var detailTextField: UITextView = UITextView()
     lazy var deleteButton: UIButton = UIButton(type: .system) as UIButton
-    
     private let disposeBag = DisposeBag()
+    
+    var action: TaskAction = .create
+    var task: Task?
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    convenience init(action: TaskAction, task: Task?) {
+        self.init(nibName: nil, bundle: nil)
+        self.action = action
+        self.task = task
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        
+        store.subscribe(self) { subscription in
+            subscription.select({ select in
+                select.activeUserState
+            })
+        }
         
         setupViews()
     }
@@ -33,6 +55,14 @@ class TodoEditViewController: UIViewController {
         guard let task = task else { return }
         titleTextField.text = task.title
         detailTextField.text = task.details
+    }
+}
+
+extension TodoEditViewController: StoreSubscriber {
+    typealias StoreSubscriberStateType = ActiveUserState
+    
+    func newState(state: ActiveUserState) {
+        //
     }
 }
 

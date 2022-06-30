@@ -25,9 +25,9 @@ final class AppRouter {
         navigationController.pushViewController(viewController, animated: animated)
     }
     
-    fileprivate func present(viewController: UIViewController, animated: Bool) {
-        navigationController.present(viewController, animated: animated)
-    }
+//    fileprivate func present(viewController: UIViewController, animated: Bool) {
+//        navigationController.present(viewController, animated: animated)
+//    }
 }
 
 extension AppRouter: StoreSubscriber {
@@ -38,13 +38,15 @@ extension AppRouter: StoreSubscriber {
         case .newUser:
             push(viewController: OnboardUserViewController(), animated: true)
         case .todo:
-            push(viewController: TodoViewController(), animated: true)
+            let vc = TodoViewController()
+            vc.delegate = self
+            push(viewController: vc, animated: true)
         case .root:
             push(viewController: ViewController(), animated: true)
-        case .editTodo:
-            present(viewController: TodoEditViewController(), animated: true)
-        case .changeUser:
-            present(viewController: UsersListViewController(), animated: true)
+//        case .editTodo:
+//            present(viewController: TodoEditViewController(), animated: true)
+//        case .changeUser:
+//            present(viewController: UsersListViewController(), animated: true)
         }
     }
 }

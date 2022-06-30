@@ -11,3 +11,7 @@ enum AppDirectories: String {
     case Documents = "Documents"
     case TodoDirectory = "TODO"
 }
+
+enum TaskAction {
+    case create, edit, delete
+}
