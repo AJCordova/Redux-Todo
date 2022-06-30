@@ -22,26 +22,11 @@ class TodoEditViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    let mode: EditMode
-    var task: Task?
-    
-    init(with mode: EditMode, task: Task?) {
-        self.mode = mode
-        self.task = task
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
         setupViews()
-        setupBindings()
-        setTask(task: task)
     }
     
     private func setTask(task: Task?) {
@@ -78,11 +63,7 @@ extension TodoEditViewController {
     func setupDeleteButton() {
         deleteButton.setTitle("DELETE", for: .normal)
         deleteButton.tintColor = .systemBlue
-        
-        if mode == .create {
-            deleteButton.isHidden = true
-        }
-        
+
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
@@ -154,35 +135,5 @@ extension TodoEditViewController {
             make.bottom.equalToSuperview().offset(-50)
             make.left.right.equalToSuperview().inset(50)
         }
-    }
-}
-
-// MARK: Bindings
-extension TodoEditViewController {
-    
-    func setupBindings() {
-        cancelButton.rx.tap.bind(onNext: {
-                self.dismiss(animated: true)
-        })
-        .disposed(by: disposeBag)
-        
-        saveButton.rx.tap.bind(onNext: { [self] in
-            mode == .create ? self.createTask() : self.editTask()
-        })
-        .disposed(by: disposeBag)
-    }
-}
-
-extension TodoEditViewController {
-    private func createTask() {
-        guard let title = titleTextField.text else { return }
-        store.dispatch(ActiveUserActions.add(task: Task(completed: false, title: title, details: detailTextField.text ?? "" )))
-    }
-    
-    private func editTask() {
-        guard var task = task, let title = titleTextField.text else { return }
-        task.title = title
-        task.details = detailTextField.text ?? ""
-        store.dispatch(ActiveUserActions.edit(task: task))
     }
 }
