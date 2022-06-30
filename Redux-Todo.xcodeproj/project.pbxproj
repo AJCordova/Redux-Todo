@@ -120,6 +120,7 @@
 		E10D5008286771CF00B58D95 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				E1E32F2B286D50B3007D5E38 /* ModalViewControllers */,
 				E14C92C7286988F7005F0659 /* Todo */,
 				E14C92C6286970A0005F0659 /* NewUser */,
 			);
@@ -139,8 +140,6 @@
 			children = (
 				E14C92C828698903005F0659 /* Components */,
 				E10D500B2867721A00B58D95 /* TodoViewController.swift */,
-				E1BCDA89286B7571007A2EF7 /* UsersListViewController.swift */,
-				E1BCDA8B286B75FD007A2EF7 /* TodoEditViewController.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -178,6 +177,7 @@
 		E198927428682BB8004417C8 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				E198928E28687184004417C8 /* Constants.swift */,
 				E1B527F428655DE800EB6CCC /* LaunchScreen.storyboard */,
 				E1B527E928655DE700EB6CCC /* AppDelegate.swift */,
 				E1B527EB28655DE700EB6CCC /* SceneDelegate.swift */,
@@ -261,7 +261,6 @@
 				E1B527ED28655DE700EB6CCC /* ViewController.swift */,
 				E1B527F228655DE800EB6CCC /* Assets.xcassets */,
 				E1B527F728655DE800EB6CCC /* Info.plist */,
-				E198928E28687184004417C8 /* Constants.swift */,
 			);
 			path = "Redux-Todo";
 			sourceTree = "<group>";
@@ -272,6 +271,15 @@
 				E1BCDA87286B66C4007A2EF7 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E1E32F2B286D50B3007D5E38 /* ModalViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1BCDA89286B7571007A2EF7 /* UsersListViewController.swift */,
+				E1BCDA8B286B75FD007A2EF7 /* TodoEditViewController.swift */,
+			);
+			path = ModalViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
