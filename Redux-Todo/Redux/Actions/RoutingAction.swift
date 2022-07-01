@@ -11,6 +11,4 @@ enum RoutingDestination: Action {
     case root
     case newUser
     case todo
-//    case editTodo
-//    case changeUser
 }

@@ -10,7 +10,6 @@ import Foundation
 protocol TaskActionsDelegate: AnyObject {
     func createAction(action: TaskAction)
     func editAction(action: TaskAction, selectedTask: Task?)
-//    func deleteAction(action: TaskAction, selectedTask: Task?)
 }
 
 // TODO: Use coordinators for app navigation instead.
@@ -22,8 +21,4 @@ extension AppRouter: TaskActionsDelegate {
     func editAction(action: TaskAction, selectedTask: Task?) {
         navigationController.present(TodoEditViewController(action: .edit, task: selectedTask), animated: true)
     }
-    
-//    func deleteAction(action: TaskAction, selectedTask: Task?) {
-//        navigationController.present(TodoEditViewController(action: .delete, task: selectedTask), animated: true)
-//    }
 }

@@ -19,10 +19,6 @@ func routingReducer(action: Action, state: RoutingState?) -> RoutingState {
         state.navigationState = .newUser
     case .todo:
         state.navigationState = .todo
-//    case .editTodo:
-//        state.navigationState = .editTodo
-//    case .changeUser:
-//        state.navigationState = .changeUser
     }
     
     return state
