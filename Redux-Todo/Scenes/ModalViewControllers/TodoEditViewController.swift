@@ -190,6 +190,14 @@ extension TodoEditViewController {
 
 extension TodoEditViewController {
     func setupBindings() {
+        let shouldShowSaveButton = self.titleTextField.rx.text.orEmpty
+            .map { $0.count < 3 }
+            .asObservable()
+        
+        shouldShowSaveButton.asObservable()
+            .bind(to: saveButton.rx.isHidden)
+            .disposed(by: disposeBag)
+        
         saveButton.rx.tap
             .bind {
                 guard let title = self.titleTextField.text else { return }
