@@ -18,6 +18,7 @@ class TodoEditViewController: UIViewController {
     lazy var titleTextField: UITextField = UITextField()
     lazy var detailLabel: UILabel = UILabel()
     lazy var detailTextField: UITextView = UITextView()
+    lazy var completeButton: UIButton = UIButton()
     lazy var deleteButton: UIButton = UIButton(type: .system) as UIButton
     private let disposeBag = DisposeBag()
     
@@ -80,12 +81,13 @@ extension TodoEditViewController {
         setupTitleTextField()
         setupDetailLabel()
         setupDetailTextField()
+        setupCompleteButton()
         setupDeleteButton()
     }
     
     func setupCancelButton() {
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.tintColor = .systemBlue
+        cancelButton.tintColor = .systemRed
         view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { make in
@@ -98,7 +100,7 @@ extension TodoEditViewController {
     
     func setupDeleteButton() {
         deleteButton.setTitle("DELETE", for: .normal)
-        deleteButton.tintColor = .systemBlue
+        deleteButton.tintColor = .systemRed
         deleteButton.isHidden = action == .add ? true : false
         view.addSubview(deleteButton)
         
@@ -161,6 +163,18 @@ extension TodoEditViewController {
         }
     }
     
+    func setupCompleteButton() {
+        completeButton.setTitle(task?.completed == true ? "Undo Task" : "Complete Task", for: .normal)
+        completeButton.setTitleColor(.systemBlue, for: .normal)
+        completeButton.isHidden = action == .add
+        view.addSubview(completeButton)
+        
+        completeButton.snp.makeConstraints { make in
+            make.top.equalTo(detailTextField.snp.bottom).offset(30)
+            make.left.right.equalToSuperview().inset(50)
+        }
+    }
+    
     func setupSaveButton() {
         saveButton.backgroundColor = .systemGreen
         saveButton.setTitle("Save Button", for: .normal)
@@ -176,14 +190,6 @@ extension TodoEditViewController {
 
 extension TodoEditViewController {
     func setupBindings() {
-//        let shouldShowSaveButton = self.titleTextField.rx.text
-//            .map( { ($0?.isEmpty)! && ($0?.count)! > 2 })
-//            .share(replay: 1)
-//
-//        shouldShowSaveButton
-//            .bind(to: saveButton.rx.isHidden)
-//            .disposed(by: disposeBag)
-        
         saveButton.rx.tap
             .bind {
                 guard let title = self.titleTextField.text else { return }
@@ -202,6 +208,18 @@ extension TodoEditViewController {
                 case .delete:
                     break
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        completeButton.rx.tap
+            .bind {
+                guard var task = self.task else { return }
+                task.completed.toggle()
+                
+                guard let title = self.titleTextField.text else { return }
+                task.title = title
+                task.details = self.detailTextField.text ?? ""
+                store.dispatch(ActiveUserActions.edit(task: task))
             }
             .disposed(by: disposeBag)
         

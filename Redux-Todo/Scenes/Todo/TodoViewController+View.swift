@@ -49,6 +49,7 @@ extension TodoViewController {
         tableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoTableViewCell")
         tableView.separatorInset = .zero
         tableView.separatorStyle = .none
+
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { make in

@@ -61,6 +61,7 @@ extension TodoViewController: StoreSubscriber {
         }
     }
 }
+
 // MARK: Bindings set-up
 extension TodoViewController {
     func setupBindings() {
@@ -70,25 +71,28 @@ extension TodoViewController {
             }
             .disposed(by: disposeBag)
         
+        changeUserButton.rx.tap
+            .bind {
+
+            }
+            .disposed(by: disposeBag)
+
+        
         tableView.rx.modelSelected(Task.self)
             .subscribe(onNext: { task in
                 self.delegate?.editAction(action: .edit, selectedTask: task)
             })
             .disposed(by: disposeBag)
         
-        changeUserButton.rx.tap
-            .bind {
-
-            }
-            .disposed(by: disposeBag)
-        
         data.asObservable()
             .bind(to: tableView.rx.items) { (tableView, row, task) -> UITableViewCell in
                 let cell: TodoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell") as! TodoTableViewCell
-                cell.title.text = task.title
                 cell.completedIndicator.image = task.completed ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle")
+                cell.title.text = task.title
                 return cell
             }
             .disposed(by: disposeBag)
+        
+        
     }
 }
